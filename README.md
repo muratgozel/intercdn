@@ -34,8 +34,7 @@ client.init('s3', function() {
     hash: false,
     // service spesific options
     s3: {
-      ACL: 'public-read',
-      ContentType: 'text/plain'
+      ACL: 'public-read'
     }
   }
   // uploading the contents of the simple folder to the target which is test
@@ -55,6 +54,21 @@ client.init('s3', function() {
       hash: 'fb274508943af633a0a035abf161ecbe'
     }]
   })
+})
+```
+Set `hash` option to `true` if you want to add hash string into your filenames. Filenames with hash considered as **immutable** which **Cache-Control** header set to **public,max-age=31536000,immutable**.
+```js
+const opts = {
+  bucket: 'mycdn',
+  target: 'test',
+  hash: true,
+  s3: {
+    ACL: 'public-read'
+  }
+}
+client.upload('./tests/samples/simple', opts, function(err, list) {
+  // each filepath in the list will be something like:
+  // test/def/sample2.08a2179b7e51.txt
 })
 ```
 

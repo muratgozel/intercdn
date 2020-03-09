@@ -1,5 +1,6 @@
 const path = require('path')
 const AWS = require('aws-sdk')
+const mime = require('mime')
 
 /*
 *
@@ -43,8 +44,11 @@ InterCDNClientS3.prototype.upload = function upload(filepath, opts, callback) {
       const params = Object.assign({}, {
         Body: obj.data,
         Bucket: opts.bucket,
-        Key: obj.filepath
-      }, self.intercdn.kit.getProp(opts, 's3', {}))
+        Key: obj.filepath,
+        ContentType: mime.getType(obj.filepath)
+      }, opts.hash ? {
+        CacheControl: 'public,max-age=31536000,immutable'
+      } : {}, self.intercdn.kit.getProp(opts, 's3', {}))
 
       self.client.putObject(params, function(err, data) {
         if (err) {

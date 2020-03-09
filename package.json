@@ -1,6 +1,6 @@
 {
   "name": "intercdn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Wrapper across SDKs of CDN services.",
   "main": "source/index.js",
   "directories": {
@@ -28,6 +28,7 @@
     "@basekits/kit-object": "^1.0.1",
     "@basekits/kit-type": "^1.0.0",
     "@basekits/kit-validator": "^1.0.0",
-    "aws-sdk": "^2.635.0"
+    "aws-sdk": "^2.635.0",
+    "mime": "^2.4.4"
   }
 }
