@@ -1,0 +1,33 @@
+{
+  "name": "intercdn",
+  "version": "1.0.0",
+  "description": "Wrapper across SDKs of CDN services.",
+  "main": "source/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "for i in tests/*.js; do node \"$i\"; done",
+    "release": "bash dev/push.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muratgozel/intercdn.git"
+  },
+  "keywords": [],
+  "author": "Murat Gözel <murat@gozel.com.tr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muratgozel/intercdn/issues"
+  },
+  "homepage": "https://github.com/muratgozel/intercdn#readme",
+  "dependencies": {
+    "@basekits/core": "^1.0.0",
+    "@basekits/kit-error": "^1.0.3",
+    "@basekits/kit-node-hashing": "^1.0.0",
+    "@basekits/kit-object": "^1.0.1",
+    "@basekits/kit-type": "^1.0.0",
+    "@basekits/kit-validator": "^1.0.0",
+    "aws-sdk": "^2.635.0"
+  }
+}
